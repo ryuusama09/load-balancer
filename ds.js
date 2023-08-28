@@ -21,6 +21,7 @@ class Queue {
     // The enqueue method receives a value and adds it to the "end" of the queue
     enqueue(val){
         var newNode = new Node(val)
+       // console.log(newNode)
         if(!this.first){
             this.first = newNode
             this.last = newNode
@@ -33,14 +34,17 @@ class Queue {
     // The dequeue method eliminates the element at the "beginning" of the queue and returns its value
     dequeue(){
         if(!this.first) return null
-
+          
         var temp = this.first
         if(this.first === this.last) {
             this.last = null
         }
         this.first = this.first.next
         this.size--
-        return temp.value
+        return temp
+    }
+    top(){
+        console.log(this.first)
     }
     empty(){
         return size === 0
